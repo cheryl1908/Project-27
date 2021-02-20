@@ -1,13 +1,12 @@
 class Bob {
-    constructor(x, y, width, height,) {
+    constructor(x, y, d) {
       var options = {
         restitution:0.3,
         friction:0.5,
         density:1.2
       }
-      this.body =Bodies.circle(200,200,10,options);
-      this.width = width;
-      this.height = height;
+      this.body =Bodies.circle(x,y,d/2,options);
+      this.r=d;
       World.add(world, this.body);
     }
     display(){
@@ -20,7 +19,7 @@ class Bob {
       stroke("magenta");
       fill("magenta");
       //ellipseMode(RADIUS);
-      //ellipse(0,0,20,20);
+      ellipse(0,0,this.r,this.r);
       pop();
     }
   };
