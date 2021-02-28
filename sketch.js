@@ -5,10 +5,10 @@ const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Constraint=Matter.Constraint;
 
-function preload()
+/*function preload()
 {
 	
-}
+}*/
 
 function setup() {
 	createCanvas(1600,700);
@@ -30,17 +30,17 @@ function setup() {
 	rope3= new Rope(bob3.body,roof.body,-2*bobDiameter,0);
 	rope4= new Rope(bob4.body,roof.body,bobDiameter,0);
 	rope5= new Rope(bob5.body,roof.body,2*bobDiameter,0);
-	Engine.run(engine);
+	
   
 }
 
 
 function draw() {
-  rectMode(CENTER);
+ 
   background(255);
-  
+  Engine.update(engine);
   bob1.display();
-  bob2.display();
+ bob2.display();
   bob3.display();
   bob4.display();
   bob5.display();
@@ -52,9 +52,15 @@ function draw() {
   rope5.display();
 
 
-  drawSprites();
+  
  
 }
+function keyPressed() {
+  	if (keyCode === UP_ARROW) {
 
+    	Matter.Body.applyForce(bob3.body,bob3.body.position,{x:-50,y:-45});
+
+  	}
+}
 
 
